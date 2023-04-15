@@ -8,17 +8,64 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id         Int        @id @default(autoincrement())
+  email      String     @unique
+  name       String
+  nickname   String
+  password   String
+  comment    Comment[]
+  feedback   Feedback[]
+  created_at DateTime   @default(now())
+  updated_at DateTime?  @updatedAt
+
+  @@map("users")
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  authorId  Int
-  author    User    @relation(fields: [authorId], references: [id])
+model Feedback {
+  id                  Int              @id @default(autoincrement())
+  title               String
+  detail              String
+  status              ProductStatus    @default(planned)
+  author_id           Int
+  product_category_id Int
+  upvote              Int
+  author              User             @relation(fields: [author_id], references: [id])
+  category            FeedbackCategory @relation(fields: [product_category_id], references: [id])
+  comment             Comment[]
+  created_at          DateTime         @default(now())
+  updated_at          DateTime?        @updatedAt
+
+  @@map("feedbacks")
+}
+
+model FeedbackCategory {
+  id         Int        @id @default(autoincrement())
+  title      String
+  product    Feedback[]
+  created_at DateTime   @default(now())
+  updated_at DateTime?  @updatedAt
+
+  @@map("product_category")
+}
+
+model Comment {
+  id          Int       @id @default(autoincrement())
+  body        String
+  author_id   Int
+  feedback_id Int
+  parent_id   Int?
+  author      User      @relation(fields: [author_id], references: [id])
+  feedback    Feedback  @relation(fields: [feedback_id], references: [id])
+  parent      Comment?  @relation("Parent", fields: [parent_id], references: [id])
+  children    Comment[] @relation("Parent")
+  created_at  DateTime  @default(now())
+  updated_at  DateTime? @updatedAt
+
+  @@map("comments")
+}
+
+enum ProductStatus {
+  in_progress
+  live
+  planned
 }
