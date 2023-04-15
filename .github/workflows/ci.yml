@@ -1,5 +1,8 @@
 name: CI
 
+env:
+  PRISMA_SKIP_POSTINSTALL_GENERATE: true
+
 on:
   pull_request:
     branches:
