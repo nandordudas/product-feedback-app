@@ -1,0 +1,26 @@
+{
+  "name": "product-feedback-app",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@8.2.0",
+  "description": "Product feedback application",
+  "author": {
+    "email": "nandor.dudas@gmail.com",
+    "name": "Nándor Dudás",
+    "url": "https://github.com/nandordudas"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.15.0",
+    "pnpm": ">=8.1.0"
+  },
+  "scripts": {
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint --cache ."
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.38.4",
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4"
+  }
+}

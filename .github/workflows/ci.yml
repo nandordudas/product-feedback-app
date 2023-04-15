@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: corepack enable
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: 🔬 Lint file content
+        run: pnpm run lint
