@@ -30,6 +30,7 @@
         "eamodio.gitlens",
         "ms-azuretools.vscode-docker",
         "mutantdino.resourcemonitor",
+        "prisma.prisma",
         "streetsidesoftware.code-spell-checker"
       ],
       "settings": {
