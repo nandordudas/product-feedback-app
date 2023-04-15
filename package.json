@@ -1,6 +1,6 @@
 {
   "name": "product-feedback-app",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "private": true,
   "packageManager": "pnpm@8.2.0",
   "description": "Product feedback application",
