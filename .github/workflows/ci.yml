@@ -30,3 +30,6 @@ jobs:
 
       - name: 🔬 Lint file content
         run: pnpm run lint
+
+      - name: 💪 Check types
+        run: pnpm run typecheck

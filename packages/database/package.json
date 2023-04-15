@@ -2,9 +2,26 @@
   "name": "@product-feedback-app/database",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
   "description": "",
+  "exports": {
+    ".": {
+      "types": "./dist/prisma.d.ts",
+      "import": "./dist/prisma.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/prisma.js",
+  "module": "./dist/prisma.js",
+  "types": "./dist/prisma.d.ts",
+  "files": [
+    "./dist"
+  ],
   "scripts": {
-    "dev": "tsx ./src/index.ts"
+    "build": "tsup",
+    "dev": "tsx watch ./src/index.ts",
+    "lint": "eslint --cache .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@prisma/client": "^4.12.0"
@@ -12,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "prisma": "^4.12.0",
+    "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "^5.0.4"
   }
