@@ -9,6 +9,8 @@ services:
       - ..:/workspaces:cached
     command: sleep infinity
     network_mode: service:db
+    depends_on:
+      - db
 
   db:
     image: postgres:latest
@@ -18,5 +20,17 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
 
+  test_db:
+    image: postgres:14.7-alpine3.17
+    restart: always
+    volumes:
+      - test-postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5433:5432'
+
 volumes:
   postgres-data:
+  test-postgres-data:
+    driver: local

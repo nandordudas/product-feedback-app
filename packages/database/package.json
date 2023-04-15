@@ -21,7 +21,7 @@
     "build": "tsup",
     "dev": "tsx watch ./src/index.ts",
     "lint": "eslint --cache .",
-    "test:integration": "dotenv ./scripts/run-integration.sh",
+    "test:integration": "dotenv -e ./.env.test ./scripts/run-integration.sh",
     "test:unit": "vitest --config vitest.config.unit.ts",
     "typecheck": "tsc --noEmit"
   },
