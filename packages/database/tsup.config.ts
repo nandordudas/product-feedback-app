@@ -3,9 +3,10 @@ import { defineConfig } from 'tsup'
 export default defineConfig({
   clean: true,
   dts: true,
-  entry: {
-    prisma: './src/prisma.ts',
-  },
+  entry: [
+    './src/index.ts',
+    './src/prisma.ts',
+  ],
   format: 'esm',
   minify: true,
   sourcemap: true,

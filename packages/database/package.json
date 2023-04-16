@@ -3,17 +3,21 @@
   "type": "module",
   "version": "0.0.4",
   "private": true,
-  "description": "",
+  "description": "Prisma client",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./prisma": {
       "types": "./dist/prisma.d.ts",
       "import": "./dist/prisma.js"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/prisma.js",
-  "module": "./dist/prisma.js",
-  "types": "./dist/prisma.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "./dist"
   ],
@@ -21,6 +25,7 @@
     "build": "tsup",
     "dev": "tsx watch ./src/index.ts",
     "lint": "eslint --cache .",
+    "postinstall": "npx prisma generate",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },

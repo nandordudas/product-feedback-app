@@ -68,6 +68,18 @@ CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 -- CreateIndex
 CREATE UNIQUE INDEX "users_user_name_key" ON "users"("user_name");
 
+-- CreateIndex
+CREATE INDEX "users_email_user_name_idx" ON "users"("email", "user_name");
+
+-- CreateIndex
+CREATE INDEX "feedbacks_title_status_feedback_category_id_idx" ON "feedbacks"("title", "status", "feedback_category_id");
+
+-- CreateIndex
+CREATE INDEX "feedback_category_title_idx" ON "feedback_category"("title");
+
+-- CreateIndex
+CREATE INDEX "comments_author_id_feedback_id_parent_id_idx" ON "comments"("author_id", "feedback_id", "parent_id");
+
 -- AddForeignKey
 ALTER TABLE "feedbacks" ADD CONSTRAINT "feedbacks_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 

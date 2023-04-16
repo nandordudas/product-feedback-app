@@ -12,5 +12,6 @@ export default defineConfig({
   test: {
     globals: true,
     reporters: 'verbose',
+    setupFiles: './src/tests/helpers/setup.ts',
   },
 })

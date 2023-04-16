@@ -19,6 +19,7 @@ model User {
   Feedback           Feedback[]
   FeedbackUserUpvote FeedbackUserUpvote[]
 
+  @@index([email, userName])
   @@map("users")
 }
 
@@ -36,6 +37,7 @@ model Feedback {
   updatedAt          DateTime?            @updatedAt @map("updated_at")
   FeedbackUserUpvote FeedbackUserUpvote[]
 
+  @@index([title, status, categoryId])
   @@map("feedbacks")
 }
 
@@ -59,6 +61,7 @@ model FeedbackCategory {
   createdAt DateTime   @default(now()) @map("created_at")
   updatedAt DateTime?  @updatedAt @map("updated_at")
 
+  @@index([title])
   @@map("feedback_category")
 }
 
@@ -75,6 +78,7 @@ model Comment {
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime? @updatedAt @map("updated_at")
 
+  @@index([authorId, feedbackId, parentId])
   @@map("comments")
 }
 
