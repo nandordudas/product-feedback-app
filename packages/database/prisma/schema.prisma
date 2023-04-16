@@ -15,8 +15,8 @@ model User {
   password           String
   createdAt          DateTime             @default(now()) @map("created_at")
   updatedAt          DateTime?            @updatedAt @map("updated_at")
-  comment            Comment[]
-  feedback           Feedback[]
+  Comment            Comment[]
+  Feedback           Feedback[]
   FeedbackUserUpvote FeedbackUserUpvote[]
 
   @@map("users")
@@ -26,12 +26,12 @@ model Feedback {
   id                 Int                  @id @default(autoincrement())
   title              String
   detail             String
-  status             FeedbackStatus       @default(planned)
+  status             FeedbackStatus       @default(PLANNED)
   authorId           Int                  @map("author_id")
   categoryId         Int                  @map("feedback_category_id")
-  author             User                 @relation(fields: [authorId], references: [id])
-  category           FeedbackCategory     @relation(fields: [categoryId], references: [id])
-  comment            Comment[]
+  Author             User                 @relation(fields: [authorId], references: [id])
+  Category           FeedbackCategory     @relation(fields: [categoryId], references: [id])
+  Comment            Comment[]
   createdAt          DateTime             @default(now()) @map("created_at")
   updatedAt          DateTime?            @updatedAt @map("updated_at")
   FeedbackUserUpvote FeedbackUserUpvote[]
@@ -42,20 +42,20 @@ model Feedback {
 model FeedbackUserUpvote {
   userId     Int       @map("user_id")
   feedbackId Int       @map("feedback_id")
-  hasUpvote  Boolean   @map("has_upvote")
-  user       User      @relation(fields: [userId], references: [id])
-  feedback   Feedback  @relation(fields: [feedbackId], references: [id])
+  hasUpvote  Boolean   @default(false) @map("has_upvote")
+  User       User      @relation(fields: [userId], references: [id])
+  Feedback   Feedback  @relation(fields: [feedbackId], references: [id])
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime? @updatedAt @map("updated_at")
 
-  @@unique([userId, feedbackId, hasUpvote])
+  @@id([userId, feedbackId, hasUpvote], name: "feedbackUserUpvote")
   @@map("feedback_user_upvote")
 }
 
 model FeedbackCategory {
   id        Int        @id @default(autoincrement())
   title     String
-  feedback  Feedback[]
+  Feedback  Feedback[]
   createdAt DateTime   @default(now()) @map("created_at")
   updatedAt DateTime?  @updatedAt @map("updated_at")
 
@@ -68,10 +68,10 @@ model Comment {
   authorId   Int       @map("author_id")
   feedbackId Int       @map("feedback_id")
   parentId   Int?      @map("parent_id")
-  author     User      @relation(fields: [authorId], references: [id])
-  feedback   Feedback  @relation(fields: [feedbackId], references: [id])
-  parent     Comment?  @relation("Parent", fields: [parentId], references: [id])
-  children   Comment[] @relation("Parent")
+  Author     User      @relation(fields: [authorId], references: [id])
+  Feedback   Feedback  @relation(fields: [feedbackId], references: [id])
+  Parent     Comment?  @relation("Parent", fields: [parentId], references: [id])
+  Children   Comment[] @relation("Parent")
   createdAt  DateTime  @default(now()) @map("created_at")
   updatedAt  DateTime? @updatedAt @map("updated_at")
 
@@ -79,7 +79,7 @@ model Comment {
 }
 
 enum FeedbackStatus {
-  in_progress
-  live
-  planned
+  IN_PROGRESS
+  LIVE
+  PLANNED
 }

@@ -9,6 +9,43 @@ const userUniqueFields = Prisma.validator<Prisma.UserSelect>()({
   userName: true,
 })
 
+const update = {
+  where: {
+    feedbackUserUpvote: {
+      feedbackId: 1,
+      userId: 1,
+      hasUpvote: true,
+    },
+  },
+  data: { hasUpvote: false }, // remove vote,
+}
+
+prisma.user.update({
+  where: { id: 1 },
+  data: {
+    FeedbackUserUpvote: { update },
+  },
+})
+
+prisma.feedback.update({
+  where: { id: 1 },
+  data: {
+    FeedbackUserUpvote: { update },
+  },
+  select: {
+    _count: {
+      select: {
+        FeedbackUserUpvote: true,
+      },
+    },
+  },
+})
+
+prisma.feedbackUserUpvote.update({
+  where: update.where,
+  data: {},
+})
+
 export function createUser(user: Prisma.UserCreateInput) {
   return prisma.user.create({
     data: user,

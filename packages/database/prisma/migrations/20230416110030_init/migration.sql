@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "FeedbackStatus" AS ENUM ('in_progress', 'live', 'planned');
+CREATE TYPE "FeedbackStatus" AS ENUM ('IN_PROGRESS', 'LIVE', 'PLANNED');
 
 -- CreateTable
 CREATE TABLE "users" (
@@ -19,7 +19,7 @@ CREATE TABLE "feedbacks" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
     "detail" TEXT NOT NULL,
-    "status" "FeedbackStatus" NOT NULL DEFAULT 'planned',
+    "status" "FeedbackStatus" NOT NULL DEFAULT 'PLANNED',
     "author_id" INTEGER NOT NULL,
     "feedback_category_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -32,9 +32,11 @@ CREATE TABLE "feedbacks" (
 CREATE TABLE "feedback_user_upvote" (
     "user_id" INTEGER NOT NULL,
     "feedback_id" INTEGER NOT NULL,
-    "has_upvote" BOOLEAN NOT NULL,
+    "has_upvote" BOOLEAN NOT NULL DEFAULT false,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3)
+    "updated_at" TIMESTAMP(3),
+
+    CONSTRAINT "feedback_user_upvote_pkey" PRIMARY KEY ("user_id","feedback_id","has_upvote")
 );
 
 -- CreateTable
@@ -65,9 +67,6 @@ CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_user_name_key" ON "users"("user_name");
-
--- CreateIndex
-CREATE UNIQUE INDEX "feedback_user_upvote_user_id_feedback_id_has_upvote_key" ON "feedback_user_upvote"("user_id", "feedback_id", "has_upvote");
 
 -- AddForeignKey
 ALTER TABLE "feedbacks" ADD CONSTRAINT "feedbacks_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
