@@ -1,13 +1,13 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
+  clean: true,
+  dts: true,
   entry: {
     prisma: './src/prisma.ts',
   },
-  minify: true,
-  splitting: false,
-  sourcemap: true,
-  clean: true,
-  dts: true,
   format: 'esm',
+  minify: true,
+  sourcemap: true,
+  splitting: false,
 })

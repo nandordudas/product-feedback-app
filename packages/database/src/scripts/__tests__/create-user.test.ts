@@ -11,8 +11,8 @@ describe('Create user', () => {
     const mockUser: Prisma.UserCreateInput = {
       email: faker.internet.email(),
       name: faker.name.fullName(),
-      nickname: faker.internet.userName(),
       password: faker.internet.password(),
+      user_name: faker.internet.userName(),
     }
 
     vi.mocked(prisma.user.create).mockResolvedValue(mockUser as User)

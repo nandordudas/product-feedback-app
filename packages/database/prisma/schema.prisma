@@ -8,34 +8,48 @@ datasource db {
 }
 
 model User {
-  id         Int        @id @default(autoincrement())
-  email      String     @unique
-  name       String
-  nickname   String
-  password   String
-  comment    Comment[]
-  feedback   Feedback[]
-  created_at DateTime   @default(now())
-  updated_at DateTime?  @updatedAt
+  id                 Int                  @id @default(autoincrement())
+  email              String               @unique
+  name               String
+  user_name          String               @unique
+  password           String
+  created_at         DateTime             @default(now())
+  updated_at         DateTime?            @updatedAt
+  comment            Comment[]
+  feedback           Feedback[]
+  FeedbackUserUpvote FeedbackUserUpvote[]
 
   @@map("users")
 }
 
 model Feedback {
-  id                  Int              @id @default(autoincrement())
+  id                  Int                  @id @default(autoincrement())
   title               String
   detail              String
-  status              ProductStatus    @default(planned)
+  status              ProductStatus        @default(planned)
   author_id           Int
   product_category_id Int
-  upvote              Int
-  author              User             @relation(fields: [author_id], references: [id])
-  category            FeedbackCategory @relation(fields: [product_category_id], references: [id])
+  author              User                 @relation(fields: [author_id], references: [id])
+  category            FeedbackCategory     @relation(fields: [product_category_id], references: [id])
   comment             Comment[]
-  created_at          DateTime         @default(now())
-  updated_at          DateTime?        @updatedAt
+  created_at          DateTime             @default(now())
+  updated_at          DateTime?            @updatedAt
+  FeedbackUserUpvote  FeedbackUserUpvote[]
 
   @@map("feedbacks")
+}
+
+model FeedbackUserUpvote {
+  user_id     Int
+  feedback_id Int
+  has_upvote  Boolean
+  user        User      @relation(fields: [user_id], references: [id])
+  feedback    Feedback  @relation(fields: [feedback_id], references: [id])
+  created_at  DateTime  @default(now())
+  updated_at  DateTime? @updatedAt
+
+  @@unique([user_id, feedback_id, has_upvote])
+  @@map("feedback_user_upvote")
 }
 
 model FeedbackCategory {
