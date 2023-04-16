@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "ProductStatus" AS ENUM ('in_progress', 'live', 'planned');
+CREATE TYPE "FeedbackStatus" AS ENUM ('in_progress', 'live', 'planned');
 
 -- CreateTable
 CREATE TABLE "users" (
@@ -19,9 +19,9 @@ CREATE TABLE "feedbacks" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
     "detail" TEXT NOT NULL,
-    "status" "ProductStatus" NOT NULL DEFAULT 'planned',
+    "status" "FeedbackStatus" NOT NULL DEFAULT 'planned',
     "author_id" INTEGER NOT NULL,
-    "product_category_id" INTEGER NOT NULL,
+    "feedback_category_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3),
 
@@ -38,13 +38,13 @@ CREATE TABLE "feedback_user_upvote" (
 );
 
 -- CreateTable
-CREATE TABLE "product_category" (
+CREATE TABLE "feedback_category" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3),
 
-    CONSTRAINT "product_category_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "feedback_category_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -73,7 +73,7 @@ CREATE UNIQUE INDEX "feedback_user_upvote_user_id_feedback_id_has_upvote_key" ON
 ALTER TABLE "feedbacks" ADD CONSTRAINT "feedbacks_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "feedbacks" ADD CONSTRAINT "feedbacks_product_category_id_fkey" FOREIGN KEY ("product_category_id") REFERENCES "product_category"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "feedbacks" ADD CONSTRAINT "feedbacks_feedback_category_id_fkey" FOREIGN KEY ("feedback_category_id") REFERENCES "feedback_category"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "feedback_user_upvote" ADD CONSTRAINT "feedback_user_upvote_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
