@@ -5,12 +5,15 @@ import { addAsyncWrapperToRouter } from '~/helpers'
 
 const VERSION = '/v1'
 
+const routes = [
+  homeRouter,
+  // Add new routers here.
+]
+
 export const V1_ROUTER = Router({
   caseSensitive: true,
   mergeParams: true,
   strict: true,
 })
 
-V1_ROUTER.use(VERSION, [
-  homeRouter,
-].map(addAsyncWrapperToRouter))
+V1_ROUTER.use(VERSION, routes.map(addAsyncWrapperToRouter))

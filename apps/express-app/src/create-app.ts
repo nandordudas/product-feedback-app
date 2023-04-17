@@ -1,16 +1,27 @@
-import express, { json, urlencoded } from 'express'
+import express, { type Router, json, urlencoded } from 'express'
 
 import { ResponseError } from './errors'
 import { catchAllRoutesHandler, errorHandler } from './middlewares'
-import { V1_ROUTER } from './routes'
 
-export function createApp() {
-  const app = express()
+const preHandlers = [
+  /** ..., cors */
+  json(),
+  urlencoded({ extended: true }),
+]
 
-  app.disable('x-powered-by')
-  app.use(json(), urlencoded({ extended: true }) /** ..., cors */)
-  app.use('/api', [V1_ROUTER])
-  app.use(catchAllRoutesHandler(new ResponseError('notFound')), errorHandler())
+const postHandlers = [
+  catchAllRoutesHandler(new ResponseError('notFound')),
+  errorHandler(),
+]
+
+export const API_PREFIX = '/api'
+
+export function createApp(prefix: string, routes: Router[]) {
+  const app = express().disable('x-powered-by')
+
+  app.use(preHandlers)
+  app.use(prefix, routes)
+  app.use(postHandlers)
 
   return app
 }
