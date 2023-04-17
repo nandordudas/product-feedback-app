@@ -11,12 +11,11 @@ const defaultMessages: Record<ErrorName, string> = {
 }
 
 export class ResponseError extends Error {
-  statusCode: number = errorMap.serverError
+  override name = 'ResponseError'
+  readonly statusCode: number = errorMap.serverError
 
   constructor(type: ErrorName, message: string | null = null) {
     super(message ?? defaultMessages[type])
-
-    this.name = this.constructor.name
 
     Object.setPrototypeOf(this, new.target.prototype)
 
