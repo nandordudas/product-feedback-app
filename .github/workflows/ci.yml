@@ -1,5 +1,8 @@
 name: CI
 
+env:
+  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+
 on:
   pull_request:
     branches:
@@ -38,8 +41,6 @@ jobs:
 
       - name: 🧪 Run test
         run: pnpm run test -- --single-thread
-        env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
 
       - name: 🔬 Lint file content
         run: pnpm run lint
