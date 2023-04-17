@@ -3,7 +3,7 @@ import { type AnyZodObject, ZodError, type z } from 'zod'
 
 import { invoke, isInstance, makeSafe } from '@product-feedback-app/utils'
 
-import { ResponseError } from '~/errors/response-error'
+import { ResponseError } from '~/errors'
 
 export async function validateRequest<T extends AnyZodObject>(
   request: Request<any, any, any, any>,

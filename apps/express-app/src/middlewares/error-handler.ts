@@ -1,7 +1,7 @@
 import type { ErrorRequestHandler } from 'express'
 import { invoke, isError, makeSafe } from '@product-feedback-app/utils'
 
-import { ResponseError } from '~/errors/response-error'
+import { ResponseError } from '~/errors'
 
 export function errorHandler(): ErrorRequestHandler {
   return (error, request, response, next) => {
