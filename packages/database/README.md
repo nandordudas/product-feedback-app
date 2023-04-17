@@ -1,4 +1,4 @@
-# Prisma client
+# Packages / Database
 
 Add `DATABASE_URL` environment variable like
 
