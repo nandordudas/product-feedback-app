@@ -1,0 +1,27 @@
+{
+  "name": "@product-feedback-app/express-app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Express application",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch ./src/index.ts",
+    "lint": "eslint --cache .",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@product-feedback-app/database": "workspace:*",
+    "@product-feedback-app/utils": "workspace:*",
+    "@total-typescript/ts-reset": "^0.4.2",
+    "@types/express": "^4.17.17",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4",
+    "vitest": "^0.30.1"
+  }
+}
