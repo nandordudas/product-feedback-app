@@ -1,2 +1,2 @@
-export * from './catch-all-routes'
+export * from './catch-all-routes-handler'
 export * from './error-handler'
