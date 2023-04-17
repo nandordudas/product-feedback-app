@@ -16,6 +16,14 @@ jobs:
   ci:
     runs-on: ubuntu-latest
 
+    container: node:18
+
+    services:
+      postgres:
+        image: postgres:14.5-alpine
+        env:
+          POSTGRES_PASSWORD: postgres
+
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
