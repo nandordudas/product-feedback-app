@@ -21,7 +21,7 @@
     "build": "tsup",
     "dev": "tsx watch ./src/index.ts",
     "lint": "eslint --cache .",
-    "postinstall": "npx prisma generate && pnpm build",
+    "postinstall": "npx prisma migrate dev && npx prisma generate && pnpm build",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
