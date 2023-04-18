@@ -1,8 +1,8 @@
 {
   "name": "product-feedback-app",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": true,
-  "packageManager": "pnpm@8.2.0",
+  "packageManager": "pnpm@8.3.0",
   "description": "Product feedback application",
   "author": {
     "email": "nandor.dudas@gmail.com",
@@ -16,9 +16,9 @@
   },
   "scripts": {
     "lint:fix": "eslint --fix .",
-    "lint": "pnpm --recursive lint",
-    "test": "pnpm --recursive test",
-    "typecheck": "pnpm --recursive typecheck"
+    "lint": "pnpm --parallel lint",
+    "test": "pnpm --parallel test -- --single-thread",
+    "typecheck": "pnpm --parallel typecheck"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",

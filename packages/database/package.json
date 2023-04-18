@@ -1,6 +1,6 @@
 {
   "name": "@product-feedback-app/database",
-  "version": "0.0.4",
+  "version": "0.0.9",
   "private": true,
   "description": "Prisma client",
   "exports": {
@@ -32,7 +32,7 @@
     "@faker-js/faker": "^7.6.0",
     "@total-typescript/ts-reset": "^0.4.2",
     "@tsconfig/esm": "^1.0.2",
-    "@tsconfig/node18": "^1.0.1",
+    "@tsconfig/node18": "^1.0.2",
     "@tsconfig/strictest": "^2.0.0",
     "@types/node": "^18.15.11",
     "@vitest/ui": "^0.30.1",
