@@ -64,8 +64,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       '@tsconfig/node18':
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.2
+        version: 1.0.2
       '@tsconfig/strictest':
         specifier: ^2.0.0
         version: 2.0.0
@@ -604,8 +604,8 @@ packages:
     resolution: {integrity: sha512-awiISx+G4L+7k97nKnfA5QF6rukawiuycMPfASFHG/0fqjrUlYBuNISy3Yjl1SHIpVi57lYf7dc6L/FoQQCKcA==}
     dev: true
 
-  /@tsconfig/node18@1.0.1:
-    resolution: {integrity: sha512-sNFeK6X2ATlhlvzyH4kKYQlfHXE2f2/wxtB9ClvYXevWpmwkUT7VaSrjIN9E76Qebz8qP5JOJJ9jD3QoD/Z9TA==}
+  /@tsconfig/node18@1.0.2:
+    resolution: {integrity: sha512-4//KMPpqhtqw4g25Zh27ELuMD+vgcidW4VLozYWtRn8VXJEiRPm7GqrVNFwBiL3rM9/3k0a07X5NpI78DvTpfQ==}
     dev: true
 
   /@tsconfig/strictest@2.0.0:

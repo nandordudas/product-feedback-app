@@ -3,6 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "description": "Express application",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "build": "tsup",
     "dev": "tsx watch ./src/index.ts",

@@ -40,7 +40,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: 🧪 Run test
-        run: pnpm run test -- --single-thread
+        run: pnpm run test
 
       - name: 🔬 Lint file content
         run: pnpm run lint
