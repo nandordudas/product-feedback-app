@@ -20,7 +20,6 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint --cache .",
-    "postinstall": "pnpm build",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },

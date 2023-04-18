@@ -37,12 +37,14 @@ jobs:
           cache: pnpm
 
       - name: 📦 Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: |
+          pnpm install --no-frozen-lockfile
+          pnpm run --parallel --filter './packages/**' build
 
       - name: 🧪 Run test
         run: pnpm run test
 
-      - name: 🔬 Lint file content
+      - name: 🔬 Lint code
         run: pnpm run lint
 
       - name: 💪 Check types
