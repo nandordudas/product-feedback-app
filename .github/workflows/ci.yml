@@ -42,15 +42,20 @@ jobs:
       - name: 🧪 Run test
         run: pnpm run test
 
-      - name: 🔬 Lint file content
-        run: pnpm run lint
-
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
-          path: .eslintcache
+          path: ./**/.eslintcache
           key: ${{ runner.OS }}-eslint-cache-${{ hashFiles('**/.eslintcache') }}
           restore-keys: |
             ${{ runner.OS }}-eslint-cache-
+
+      - name: 🔬 Lint file content
+        run: pnpm run lint
+
+      - uses: actions/cache@v3
+        with:
+          path: ./**/.eslintcache
+          key: ${{ runner.OS }}-eslint-cache-${{ hashFiles('**/.eslintcache') }}
 
       - name: 💪 Check types
         run: pnpm run typecheck
