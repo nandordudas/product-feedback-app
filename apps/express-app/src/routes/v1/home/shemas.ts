@@ -28,8 +28,8 @@ export const shemas = {
   // { age: string, name: string }
   get query() {
     return z.object({
-      age: z.string().transform(Number),
-      name: z.string(),
+      age: z.string().optional().transform(Number),
+      name: z.string().optional(),
     })
   },
 }
