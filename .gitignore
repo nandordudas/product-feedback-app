@@ -1,4 +1,5 @@
 .pnpm-store
+.vite-inspect
 .vscode
 coverage
 dist

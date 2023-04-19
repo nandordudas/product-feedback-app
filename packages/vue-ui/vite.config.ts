@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: `${root}/index.ts`,
-      name: '@vue-ui/components',
+      name: 'vue-ui',
     },
     rollupOptions: {
       external: [
