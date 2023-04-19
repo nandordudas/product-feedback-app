@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { User } from '@product-feedback-app/database'
 
-defineProps<{ msg: string }>()
+const props = defineProps<{ msg?: string }>()
 
 const API_URL = 'http://localhost:3001/api/v1'
 
-const result = await fetch(API_URL, {
+const result = await fetch(`${API_URL}/?id=${props.msg || ''}`, {
   mode: 'cors',
   credentials: 'omit',
   headers: {
