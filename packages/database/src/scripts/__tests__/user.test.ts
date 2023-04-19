@@ -1,5 +1,5 @@
-import type { Prisma, User } from '@prisma/client'
 import { faker } from '@faker-js/faker'
+import type { Prisma, User } from '@prisma/client'
 
 import { prisma } from '~/prisma'
 import { createUser } from '~/scripts/user'

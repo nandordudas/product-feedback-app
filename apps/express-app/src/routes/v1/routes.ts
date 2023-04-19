@@ -1,11 +1,12 @@
 import { Router } from 'express'
 
-import { homeRouter } from './home'
 import { addAsyncWrapperToRouter } from '~/helpers'
+
+import { homeRouter } from './home'
 
 const VERSION = '/v1'
 
-const routes = [
+const routes: Router[] = [
   homeRouter,
   // Add new routers here.
 ]

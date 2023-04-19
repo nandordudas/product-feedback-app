@@ -1,7 +1,7 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import { Suspense, defineComponent } from 'vue'
 
-import HelloWorld from '../HelloWorld.vue'
+import HelloWorld from '~/components/HelloWorld.vue'
 
 const HelloWorldComponent = defineComponent({
   setup() {

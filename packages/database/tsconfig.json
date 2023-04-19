@@ -23,7 +23,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    // @tsconfig/node18
+    // @tsconfig/node18 - ES2023 at @tsconfig/node18@2.0.0 🤔
     "lib": [
       "ES2022"
     ],

@@ -19,14 +19,14 @@
       "@total-typescript/ts-reset",
       "vite/client",
       "vitest/globals"
-    ]
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": [
+        "./*"
+      ]
+    }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

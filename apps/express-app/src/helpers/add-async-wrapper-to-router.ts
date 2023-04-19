@@ -1,7 +1,6 @@
-import type { RequestHandler, Router } from 'express'
-import type { ServerHandle, ServerStackItem } from 'connect'
-
 import { isAsyncFunction } from '@product-feedback-app/utils'
+import type { ServerHandle, ServerStackItem } from 'connect'
+import type { RequestHandler, Router } from 'express'
 
 import { asyncWrapper } from './async-wrapper'
 

@@ -1,5 +1,5 @@
-import { z } from 'zod'
 import { type User } from '@product-feedback-app/database'
+import { z } from 'zod'
 
 const body = z.custom<{ key: string }>() // Just for example
 

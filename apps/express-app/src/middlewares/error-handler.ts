@@ -1,5 +1,5 @@
-import type { ErrorRequestHandler } from 'express'
 import { invoke, isError, makeSafe } from '@product-feedback-app/utils'
+import type { ErrorRequestHandler } from 'express'
 
 import { ResponseError } from '~/errors'
 
@@ -7,9 +7,6 @@ export function errorHandler(): ErrorRequestHandler {
   return (error, request, response, next) => {
     if (response.headersSent)
       return next(new ResponseError('serverError'))
-
-    if (request.path === '/favicon.ico')
-      return next()
 
     let message: string | unknown = isError(error) ? error.message : 'Something went wrong'
     const statusCode = Number(error?.statusCode) || 500

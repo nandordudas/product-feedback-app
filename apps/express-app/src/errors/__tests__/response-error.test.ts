@@ -1,4 +1,4 @@
-import { ResponseError } from '../response-error'
+import { ResponseError } from '~/errors/response-error'
 
 describe('ResponseError', () => {
   it('should create custom error', () => {

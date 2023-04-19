@@ -1,9 +1,10 @@
-import { Router } from 'express'
 import { prisma } from '@product-feedback-app/database'
+import { Router } from 'express'
+
+import { validateRequest } from '~/helpers'
 
 import type { ParamsSchema, QuerySchema, RequestSchema, ResponseSchema } from './shemas'
 import { shemas } from './shemas'
-import { validateRequest } from '~/helpers'
 
 export const homeRouter = Router()
 

@@ -1,22 +1,21 @@
-import express, { type Router, json, urlencoded } from 'express'
+import type { ErrorRequestHandler, RequestHandler, Router } from 'express'
+import express, { json, urlencoded } from 'express'
 
 import { ResponseError } from './errors'
 import { catchAllRoutesHandler, errorHandler } from './middlewares'
 
-const preHandlers = [
+const preHandlers: RequestHandler[] = [
   /** ..., cors */
   json(),
   urlencoded({ extended: true }),
 ]
 
-const postHandlers = [
+const postHandlers: (RequestHandler | ErrorRequestHandler)[] = [
   catchAllRoutesHandler(new ResponseError('notFound')),
   errorHandler(),
 ]
 
-export const API_PREFIX = '/api'
-
-export function createApp(prefix: string, routes: Router[]) {
+export function createApp(routes: Router[]) {
   const app = express().disable('x-powered-by')
 
   app.use(preHandlers)
@@ -26,7 +25,7 @@ export function createApp(prefix: string, routes: Router[]) {
     response.header('Access-Control-Allow-Headers', 'Content-Type')
     next()
   })
-  app.use(prefix, routes)
+  app.use('/api', routes)
   app.use(postHandlers)
 
   return app

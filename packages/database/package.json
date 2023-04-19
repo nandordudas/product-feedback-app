@@ -26,17 +26,17 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@prisma/client": "^4.12.0"
+    "@prisma/client": "^4.13.0"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@total-typescript/ts-reset": "^0.4.2",
     "@tsconfig/esm": "^1.0.2",
-    "@tsconfig/node18": "^1.0.2",
+    "@tsconfig/node18": "^2.0.0",
     "@tsconfig/strictest": "^2.0.0",
     "@types/node": "^18.15.11",
     "@vitest/ui": "^0.30.1",
-    "prisma": "^4.12.0",
+    "prisma": "^4.13.0",
     "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "^5.0.4",

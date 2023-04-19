@@ -9,8 +9,8 @@
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
     "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
-      "omzPlugins": "https://github.com/z-shell/F-Sy-H",
-      "plugins": "git F-Sy-H"
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/z-shell/F-Sy-H",
+      "plugins": "git F-Sy-H zsh-autosuggestions"
     },
     "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
   },
@@ -18,7 +18,7 @@
   // "forwardPorts": [],
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": {
-    "installGlobalDependencies": "npm install --global @antfu/ni bumpp taze",
+    "installGlobalDependencies": "npm install --global @antfu/ni bumpp npkill taze",
     "installDependencies": "pnpm install"
   },
   // Configure tool-specific properties.

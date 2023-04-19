@@ -1,5 +1,5 @@
-import { rest } from 'msw'
 import type { User } from '@product-feedback-app/database'
+import { rest } from 'msw'
 
 const PRODUCTS_URL = 'http://localhost:3001/api/v1'
 

@@ -1,7 +1,8 @@
-import { fileURLToPath } from 'node:url'
-import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 import jsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig } from 'vitest/config'
+
+import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('./src', import.meta.url))
 
