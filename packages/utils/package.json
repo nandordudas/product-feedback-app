@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "coverage": "vitest --coverage",
     "lint": "eslint --cache .",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@total-typescript/ts-reset": "^0.4.2",
+    "@vitest/coverage-c8": "^0.30.1",
     "@vitest/ui": "^0.30.1",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4",

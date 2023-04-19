@@ -17,7 +17,7 @@
   "scripts": {
     "lint:fix": "eslint --fix .",
     "lint": "pnpm --parallel lint",
-    "test": "pnpm --parallel test -- --single-thread",
+    "test": "pnpm --parallel test -- --coverage --single-thread",
     "typecheck": "pnpm --parallel typecheck"
   },
   "devDependencies": {

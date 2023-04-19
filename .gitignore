@@ -1,5 +1,6 @@
 .pnpm-store
 .vscode
+coverage
 dist
 node_modules
 
