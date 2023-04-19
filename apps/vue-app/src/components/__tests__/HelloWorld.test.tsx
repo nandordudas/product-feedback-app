@@ -1,21 +1,15 @@
 import { flushPromises, mount } from '@vue/test-utils'
-import { Suspense, defineComponent } from 'vue'
+import { Suspense } from 'vue'
 
 import HelloWorld from '~/components/HelloWorld.vue'
 
-const HelloWorldComponent = defineComponent({
-  setup() {
-    return () => (
+describe('HelloWorld', () => {
+  it('should display message', async () => {
+    const wrapper = mount(() => (
       <Suspense>
         <HelloWorld msg="Hello world" />
       </Suspense>
-    )
-  },
-})
-
-describe('HelloWorld', () => {
-  it('should display message', async () => {
-    const wrapper = mount(HelloWorldComponent)
+    ))
 
     await flushPromises()
 
