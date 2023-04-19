@@ -21,8 +21,9 @@
     "build": "tsup",
     "coverage": "vitest --coverage",
     "dev": "tsx watch ./src/index.ts",
+    "generate": "npx prisma generate",
     "lint": "eslint --cache .",
-    "postinstall": "npx prisma migrate dev && npx prisma generate",
+    "postinstall": "npx prisma migrate dev",
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
