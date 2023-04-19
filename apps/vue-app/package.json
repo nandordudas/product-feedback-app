@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@product-feedback-app/database": "workspace:*",
+    "@product-feedback-app/vue-ui": "workspace:*",
     "@total-typescript/ts-reset": "^0.4.2",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vitejs/plugin-vue-jsx": "^3.0.1",

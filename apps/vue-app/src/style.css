@@ -1,3 +1,5 @@
+@import '@product-feedback-app/vue-ui/dist/style.css';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

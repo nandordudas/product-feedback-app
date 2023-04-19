@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "skipLibCheck": true,
+    "types": [
+      "@total-typescript/ts-reset",
+      "unplugin-vue-macros/macros-global",
+      "vite/client",
+      "vitest/globals"
+    ],
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": [
+        "./*"
+      ]
+    }
+  },
+  "vueCompilerOptions": {
+    "target": 3,
+    "plugins": [
+      "@vue-macros/volar/define-options"
+    ]
+  },
+  "exclude": [
+    "./coverage",
+    "./dist",
+    "./vite.config.ts",
+    "./vitest.config.ts"
+  ]
+}

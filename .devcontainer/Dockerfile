@@ -8,6 +8,9 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:0-16
 #   && apt-get clean -y \
 #   && rm -rf /var/lib/apt/lists/*
 
+# Not yet.
+# RUN pnpm create wdio . --yes
+
 USER node
 
 RUN npm install --global @antfu/ni bumpp npkill pnpm taze

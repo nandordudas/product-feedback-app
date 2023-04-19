@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import UIButton from '@product-feedback-app/vue-ui'
+
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
@@ -7,6 +9,9 @@ import HelloWorld from './components/HelloWorld.vue'
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
     </a>
+    <UIButton>
+      Yeah
+    </UIButton>
   </div>
   <Suspense>
     <HelloWorld msg="Vue" />
