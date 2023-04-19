@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue'
 import VueMacros from 'unplugin-vue-macros'
-import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
+import { defineConfig } from 'vitest/config'
 
 import { fileURLToPath } from 'node:url'
 
@@ -38,5 +38,10 @@ export default defineConfig({
     alias: {
       '~': root,
     },
+  },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    reporters: 'verbose',
   },
 })

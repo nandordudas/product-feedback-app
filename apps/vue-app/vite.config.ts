@@ -1,5 +1,6 @@
 import vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
+import jsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig } from 'vitest/config'
 
 import { fileURLToPath } from 'node:url'
 
@@ -11,5 +12,14 @@ export default defineConfig({
       '~': root,
     },
   },
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    jsx(),
+  ],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    reporters: 'verbose',
+    setupFiles: './src/test/setup.ts',
+  },
 })
