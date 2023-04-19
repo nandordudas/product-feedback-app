@@ -18,7 +18,6 @@
   // "forwardPorts": [],
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": {
-    "installGlobalDependencies": "npm install --global @antfu/ni bumpp npkill taze",
     "installDependencies": "pnpm install"
   },
   // Configure tool-specific properties.
