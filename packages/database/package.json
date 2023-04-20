@@ -36,7 +36,7 @@
     "@tsconfig/esm": "^1.0.2",
     "@tsconfig/node18": "^2.0.0",
     "@tsconfig/strictest": "^2.0.0",
-    "@types/node": "^18.15.11",
+    "@types/node": "^18.15.12",
     "@vitest/coverage-c8": "^0.30.1",
     "@vitest/ui": "^0.30.1",
     "prisma": "^4.13.0",
