@@ -22,7 +22,26 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.5",
+    "@faker-js/faker": "^7.6.0",
+    "@total-typescript/ts-reset": "^0.4.2",
+    "@tsconfig/esm": "^1.0.3",
+    "@tsconfig/node18": "^2.0.0",
+    "@tsconfig/strictest": "^2.0.1",
+    "@types/node": "^18.15.13",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vitest/coverage-c8": "^0.30.1",
+    "@vitest/ui": "^0.30.1",
+    "@vue/test-utils": "^2.3.2",
     "eslint": "^8.38.0",
-    "typescript": "^5.0.4"
+    "happy-dom": "^9.8.4",
+    "jsdom": "^21.1.1",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.6",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.1",
+    "vite-plugin-inspect": "^0.7.23",
+    "vitest": "^0.30.1",
+    "vitest-mock-extended": "^1.1.3"
   }
 }
