@@ -33,10 +33,10 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@total-typescript/ts-reset": "^0.4.2",
-    "@tsconfig/esm": "^1.0.2",
+    "@tsconfig/esm": "^1.0.3",
     "@tsconfig/node18": "^2.0.0",
-    "@tsconfig/strictest": "^2.0.0",
-    "@types/node": "^18.15.12",
+    "@tsconfig/strictest": "^2.0.1",
+    "@types/node": "^18.15.13",
     "@vitest/coverage-c8": "^0.30.1",
     "@vitest/ui": "^0.30.1",
     "prisma": "^4.13.0",

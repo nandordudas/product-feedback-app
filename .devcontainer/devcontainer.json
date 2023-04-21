@@ -31,7 +31,8 @@
         "mutantdino.resourcemonitor",
         "prisma.prisma",
         "streetsidesoftware.code-spell-checker",
-        "vue.volar"
+        "vue.volar",
+        "zixuanchen.vitest-explorer"
       ],
       "settings": {
         "editor.detectIndentation": false,

@@ -37,6 +37,7 @@
   "exclude": [
     "./coverage",
     "./dist",
-    "./vite.config.ts"
+    "./vite.config.ts",
+    "./uno.config.ts"
   ]
 }

@@ -1,4 +1,5 @@
 import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros'
 import Inspect from 'vite-plugin-inspect'
 import { defineConfig } from 'vitest/config'
@@ -30,6 +31,7 @@ export default defineConfig({
         vue: vue(),
       },
     }),
+    UnoCSS(),
     Inspect({
       build: true,
     }),
@@ -40,7 +42,7 @@ export default defineConfig({
     },
   },
   test: {
-    environment: 'jsdom',
+    environment: 'happy-dom',
     globals: true,
     reporters: 'verbose',
   },
